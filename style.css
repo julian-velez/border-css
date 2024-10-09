@@ -1,0 +1,57 @@
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 150px;
+}
+
+  /* 
+  Explicación de cada parte de border-image:
+
+  1. linear-gradient(45deg, red, yellow, green, blue): 
+     - Creamos un gradiente con un ángulo de 45 grados.
+     - El gradiente cambia de rojo a amarillo, luego a verde, y finalmente a azul.
+     - Este gradiente se usará para colorear el borde del contenedor.
+  
+  2. 1 (slice):
+     - Este número indica cómo se aplicará el gradiente a lo largo del borde.
+     - Un valor de 1 significa que el gradiente se extiende uniformemente a lo largo de todo el borde.
+     - Este valor se llama "slice", y define cómo se recorta o ajusta la imagen del borde. Al usar `1`, no se recorta y se aplica de manera completa.
+  */
+.container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    width: 420px;
+    height: 250px;
+    border: 10px solid; /* Definimos el grosor del borde */
+    border-image: linear-gradient(45deg,#051937, #004d7a, #008793, #a8eb12) 1;
+    animation: rotate-border 5s infinite linear; /* Animación para rotar el borde */
+    padding: 32px;
+}
+
+h1 {
+    color: white;
+    font-size: 150px;
+    animation: glow-text 2s infinite alternate; /* Animación para brillo del texto */
+}
+
+
+@keyframes rotate-border {
+    0% {
+      border-image: linear-gradient(45deg, #051937, #004d7a, #008793, #a8eb12) 1;
+    }
+    100% {
+      border-image: linear-gradient(405deg, #051937, #004d7a, #008793, #a8eb12) 1;
+    }
+  }
+
+  @keyframes glow-text {
+    0% {
+      text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    }
+    100% {
+      text-shadow: 0 0 20px cyan, 0 0 30px cyan, 0 0 40px cyan;
+    }
+  }
